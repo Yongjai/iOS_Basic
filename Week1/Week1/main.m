@@ -12,7 +12,7 @@
 
 int main(int argc, const char * argv[]) {
     
-    NXPenHolder *penholder = [[NXPenHolder alloc]initWithCapacity:10];
+    NXPenHolder *penholder = [[NXPenHolder alloc]initWithCapacity:5];
     
     NXpen *Pen1 = [[NXpen alloc]initWithBrand:@"Bic"];
     [Pen1 setColor:@"RED" ];
@@ -24,7 +24,8 @@ int main(int argc, const char * argv[]) {
     [Pen2 setUsage:10];
     [Pen2 printDescription];
     
-    [penholder add:(NXpen *)Pen1];
+    [penholder add:(NXpen *)Pen1.brand];
+    [penholder add:(NXpen *)Pen2.brand];
     [penholder printDescription];
     
     [penholder remove:1];

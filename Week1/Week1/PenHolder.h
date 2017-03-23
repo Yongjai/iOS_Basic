@@ -11,6 +11,7 @@
 
 @interface NXPenHolder : NSObject {
     NSMutableArray* _pens;
+    int _capacity;
     int _usage;
 }
 

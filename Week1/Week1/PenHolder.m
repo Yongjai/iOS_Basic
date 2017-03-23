@@ -15,18 +15,19 @@
     
     if(self){
         _pens = [NSMutableArray arrayWithCapacity:capacity];
-        _usage = (_usage/capacity);
+        _capacity = capacity;
+        
     }
     return self;
 }
 
 -(void)add:(NXpen*)pen{
-    if(_usage > [_pens count]){
+    if(_usage > _capacity){
         NSLog(@"자리없음");
     }
     else{
         [_pens addObject:pen];
-        ++_usage;
+        _usage = ++_usage;
     }
 }
 
@@ -36,11 +37,12 @@
     }
     else{
         [_pens removeObject:_pens];
-        --_usage;
+        _usage = --_usage;
     }
 }
 
 -(int)usage{
+    _usage = (int)([_pens count]/_capacity*100);
     return _usage;
 }
 
