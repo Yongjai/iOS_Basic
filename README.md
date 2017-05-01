@@ -10,4 +10,6 @@
 * [Week4 2017.04.08 18:10제출](https://github.com/Yongjai/iOS_Basic/tree/master/Week4)
 * [Week5 ㅜㅜ]
 * [Week6 2017.04.20 09:55제출](https://github.com/Yongjai/iOS_Basic/tree/master/Week6)
+* [Week7 2017.05.01 17:30제출 미완성](https://github.com/Yongjai/iOS_Basic/tree/master/Week7)
+
 
