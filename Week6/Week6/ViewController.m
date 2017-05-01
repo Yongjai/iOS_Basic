@@ -24,6 +24,20 @@
     self.cardDeck = [[CardDeck alloc]init];
     [self registerRandomizeObserver];
     [self.cardDeck randomize];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0];
+    NSString *plistPath = [documentsPath stringByAppendingPathComponent:@"myPlist.plist"];
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath])
+    {
+        plistPath = [[NSBundle mainBundle] pathForResource:@"manuallyData" ofType:@"plist"];
+    }
+    
+    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
+    self.image1 = [dict objectForKey:@"image1"];
+    self.image2 = [dict objectForKey:@"image2"];
+    self.image3 = [dict objectForKey:@"image3"];
 }
 
 -(void) didReceiveRandomizeNotification:(NSNotification*) notification {
@@ -42,6 +56,11 @@
     [self.image1 setImage:uiImage1];
     [self.image2 setImage:uiImage2];
     [self.image3 setImage:uiImage3];
+    
+    [imageA addObject:image1];
+    [imageB addObject:image2];
+    [imageC addObject:image3];
+    
 }
 
 -(void) registerRandomizeObserver {
@@ -55,6 +74,25 @@
 
 - (IBAction)clickedRandomBtn:(id)sender {
     [self.cardDeck randomize];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0];
+    NSString *plistPath = [documentsPath stringByAppendingPathComponent:@"myPlist.plist"];
+    
+    NSDictionary *plistDict = [[NSDictionary alloc] initWithObjects: [NSMutableArray arrayWithObjects: imageA, imageB, imageC, nil] forKeys:[NSMutableArray arrayWithObjects: @"image1", "image2", "image3", nil]];
+    
+    NSString *error = nil;
+    NSData *plistData = [NSPropertyListSerialization dataFromPropertyList:plistDict format:NSPropertyListXMLFormat_v1_0 errorDescription:&error];
+    
+    if(plistData)
+    {
+        [plistData writeToFile:plistPath atomically:YES];
+        NSLog(@"sucess");
+    }
+    else
+    {
+        NSLog(@"error");
+    }
 }
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
