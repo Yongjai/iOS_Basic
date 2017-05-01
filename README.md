@@ -11,7 +11,7 @@
 * [Week5 ㅜㅜ]
 * [Week6 2017.04.20 09:55제출](https://github.com/Yongjai/iOS_Basic/tree/master/Week6)
 * [Week7 2017.05.01 17:30제출 미완성](https://github.com/Yongjai/iOS_Basic/tree/master/Week7)
-* [Mid-Term 2017.05.01 21:46제출 미완성](https://github.com/Yongjai/iOS_Basic/tree/master/Mid-Term)
+* [Mid-Term 2017.05.01 21:46제출](https://github.com/Yongjai/iOS_Basic/tree/master/Mid-Term)
 
 
 
