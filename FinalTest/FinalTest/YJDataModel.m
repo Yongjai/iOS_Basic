@@ -8,19 +8,26 @@
 
 #import "YJDataModel.h"
 
-@implementation memo {
-    RLMRealm *realm;
+@implementation Memo
+
+
+-(instancetype) initPrivate {
+    self = [super init];
+    if (self){
+    }
+    return self;
 }
 
+
 - (void) insertMemo {
+    RLMRealm *realm = [RLMRealm defaultRealm];
     [realm transactionWithBlock:^{
-        [realm addOrUpdateObject:self];
+        [realm addObject:self];
     }];
     [[NSNotificationCenter defaultCenter]
      postNotificationName:@"data" object:nil];
+    NSLog(@"%@", self);
 }
 
 @end
-
-RLM_ARRAY_TYPE(memo);
 

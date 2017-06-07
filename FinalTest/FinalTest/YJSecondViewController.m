@@ -29,7 +29,7 @@
 
 
 - (IBAction)clickedAddBtn:(id)sender {
-    memo *memoText = [[memo alloc]init];
+    Memo *memoText = [[Memo alloc]init];
     memoText.memo = _memoTextField.text;
     memoText.time = [NSDate date];
     

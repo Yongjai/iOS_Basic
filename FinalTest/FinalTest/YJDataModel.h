@@ -9,7 +9,7 @@
 #import <Realm/Realm.h>
 #import <RLMObject.h>
 
-@interface memo : RLMObject
+@interface Memo : RLMObject
 
 @property NSString *memo;
 @property NSDate *time;
