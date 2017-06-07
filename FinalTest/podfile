@@ -1,0 +1,3 @@
+target ‘FinalTest’ do
+  pod 'Realm', '~> 2.8'
+end
